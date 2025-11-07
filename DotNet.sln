@@ -1,0 +1,54 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.36401.2
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PrismTemplate", "PrismTemplate\PrismTemplate.csproj", "{05F9D9CB-3DE8-461F-98EB-8FFA37FC6077}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "WPF", "WPF", "{02EA681E-C7D8-13C7-8484-4AC65E1B71E8}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Prism", "Prism", "{32789216-1C80-41A4-A880-70192605D6D6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RegionManager", "RegionManager\RegionManager.csproj", "{7782C36D-DC81-4022-86FC-53AE808D5604}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Navigate", "Navigate\Navigate.csproj", "{ED2798B1-3201-4B50-A617-606CB1A3BE06}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NavigateJournal", "NavigateJournal\NavigateJournal.csproj", "{2C37F138-E201-4496-9BCE-56E00A12BF54}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{05F9D9CB-3DE8-461F-98EB-8FFA37FC6077}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{05F9D9CB-3DE8-461F-98EB-8FFA37FC6077}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{05F9D9CB-3DE8-461F-98EB-8FFA37FC6077}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{05F9D9CB-3DE8-461F-98EB-8FFA37FC6077}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7782C36D-DC81-4022-86FC-53AE808D5604}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7782C36D-DC81-4022-86FC-53AE808D5604}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7782C36D-DC81-4022-86FC-53AE808D5604}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7782C36D-DC81-4022-86FC-53AE808D5604}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ED2798B1-3201-4B50-A617-606CB1A3BE06}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ED2798B1-3201-4B50-A617-606CB1A3BE06}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ED2798B1-3201-4B50-A617-606CB1A3BE06}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ED2798B1-3201-4B50-A617-606CB1A3BE06}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2C37F138-E201-4496-9BCE-56E00A12BF54}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2C37F138-E201-4496-9BCE-56E00A12BF54}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2C37F138-E201-4496-9BCE-56E00A12BF54}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2C37F138-E201-4496-9BCE-56E00A12BF54}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{05F9D9CB-3DE8-461F-98EB-8FFA37FC6077} = {32789216-1C80-41A4-A880-70192605D6D6}
+		{32789216-1C80-41A4-A880-70192605D6D6} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
+		{7782C36D-DC81-4022-86FC-53AE808D5604} = {32789216-1C80-41A4-A880-70192605D6D6}
+		{ED2798B1-3201-4B50-A617-606CB1A3BE06} = {32789216-1C80-41A4-A880-70192605D6D6}
+		{2C37F138-E201-4496-9BCE-56E00A12BF54} = {32789216-1C80-41A4-A880-70192605D6D6}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {3CB03273-0C93-40C4-9D95-14BFDB053E72}
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,60 @@
+﻿<Window
+    x:Class="NavigateJournal.Views.MainView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:local="clr-namespace:NavigateJournal.Views"
+    mc:Ignorable="d"
+    Title="MainView"
+    xmlns:prism="http://prismlibrary.com/"
+    xmlns:viewmodels="clr-namespace:NavigateJournal.ViewModels"
+    d:DataContext="{d:DesignInstance Type=viewmodels:MainViewModel}"
+    xmlns:common="clr-namespace:NavigateJournal.Common"
+    Height="450"
+    Width="1000">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition
+                Height="auto" />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+
+        <StackPanel
+            Orientation="Horizontal">
+            <Button
+                Content="Navigate To AAAView"
+                Margin="10"
+                FontSize="18"
+                Command="{Binding Path=NavigateCommand}"
+                CommandParameter="AAAView" />
+            <Button
+                Content="Navigate To BBBView"
+                Margin="10"
+                FontSize="18"
+                Command="{Binding Path=NavigateCommand}"
+                CommandParameter="BBBView" />
+            <Button
+                Content="Navigate To CCCView"
+                Margin="10"
+                FontSize="18"
+                Command="{Binding Path=NavigateCommand}"
+                CommandParameter="CCCView" />
+            <Button
+                Content="上一步"
+                Margin="10"
+                FontSize="18"
+                Command="{Binding Path=GoBackCommand}" />
+            <Button
+                Content="下一步"
+                Margin="10"
+                FontSize="18"
+                Command="{Binding Path=GoForwardCommand}" />
+        </StackPanel>
+
+        <ContentControl
+            Grid.Row="1"
+            prism:RegionManager.RegionName="{x:Static common:Constants.MainViewRegionName }" />
+
+    </Grid>
+</Window>
