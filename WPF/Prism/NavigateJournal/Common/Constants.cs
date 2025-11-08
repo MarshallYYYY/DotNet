@@ -9,6 +9,5 @@ namespace NavigateJournal.Common
     public static class Constants
     {
         public const string MainViewRegionName = "MainViewRegion";
-        public const string NavigateParamsKey = "TestKey";
     }
 }

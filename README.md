@@ -25,3 +25,11 @@
 #### NavigateJournal
 
 导航日志
+
+#### Dialog
+
+对话服务
+
+#### PubSubEvent
+
+消息的发送、订阅、取消订阅

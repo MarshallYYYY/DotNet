@@ -1,0 +1,35 @@
+﻿<Window
+    x:Class="PubSubEvent.Views.MainView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:prism="http://prismlibrary.com/"
+    xmlns:viewmodels="clr-namespace:PubSubEvent.ViewModels"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    d:DataContext="{d:DesignInstance Type=viewmodels:MainViewModel}"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Height="450"
+    Width="800"
+    prism:ViewModelLocator.AutoWireViewModel="True">
+    <Grid>
+        <StackPanel
+            Orientation="Horizontal">
+
+            <Button
+                Command="{Binding OpenCommand}"
+                Content="打开 SubUnSubView"
+                FontSize="22"
+                Margin="20"
+                Width="auto"
+                Height="60" />
+
+            <Button
+                Command="{Binding PubCommand}"
+                Content="发布消息"
+                FontSize="22"
+                Width="150"
+                Height="60" />
+
+        </StackPanel>
+    </Grid>
+</Window>
