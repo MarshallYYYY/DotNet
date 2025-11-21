@@ -1,12 +1,5 @@
 ﻿using Dialog.Common;
-using Prism.Dialogs;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Media;
 
 namespace Dialog.ViewModels
 {
@@ -19,7 +12,7 @@ namespace Dialog.ViewModels
             this.dialogService = dialogService;
             OpenCommand = new DelegateCommand<string>(Open);
         }
-        private readonly string infoHead = "MainViewModel.cs\n";
+        private const string infoHead = "MainViewModel.cs\n";
         private void Open(string viewName)
         {
             DialogParameters parameters = new()
@@ -40,7 +33,7 @@ namespace Dialog.ViewModels
                     string value = callback.Parameters.GetValue<string>(Constants.DialogParametersKeyOne);
                     MessageBox.Show($"{infoHead}" +
                         $"Open() → dialogService.ShowDialog() → callback.Result == ButtonResult.OK\n" +
-                        $"{value}");
+                        $"来自 DialogViewModel.cs 的消息：{value}");
                 }
             });
         }

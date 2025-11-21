@@ -12,6 +12,7 @@
     Title="MainView"
     Height="450"
     Width="800">
+    
     <Grid>
         <Button
             Content="打开对话窗口"
@@ -21,4 +22,5 @@
             Command="{Binding OpenCommand}"
             CommandParameter="DialogView" />
     </Grid>
+    
 </Window>

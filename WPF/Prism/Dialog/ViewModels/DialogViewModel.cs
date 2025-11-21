@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection.Metadata;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
+﻿using System.Windows;
 using Dialog.Common;
 
 namespace Dialog.ViewModels
@@ -44,7 +38,7 @@ namespace Dialog.ViewModels
         /* 表达式体属性语法（C# 6.0+）
          * 每次访问时创建新实例 */
         //public DialogCloseListener RequestClose => new();
-        private readonly string infoHead = "DialogViewModel.cs\n";
+        private const string infoHead = "DialogViewModel.cs\n";
         public bool CanCloseDialog()
         {
             // ③
@@ -62,7 +56,8 @@ namespace Dialog.ViewModels
         {
             // ②
             string value = parameters.GetValue<string>(Constants.DialogParametersKeyTwo);
-            MessageBox.Show(infoHead + "OnDialogOpened()\n" + value);
+            MessageBox.Show(infoHead + "OnDialogOpened()\n" +
+                $"来自 MainViewModel.cs 的消息：{value}");
         }
         #endregion
     }
