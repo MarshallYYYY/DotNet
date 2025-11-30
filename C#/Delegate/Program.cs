@@ -1,9 +1,4 @@
-﻿using Microsoft.VisualBasic;
-using System.Collections;
-using System.Collections.Generic;
-using System.Reflection.Metadata.Ecma335;
-
-namespace Delegate
+﻿namespace Delegate
 {
     internal class Program
     {
@@ -20,6 +15,8 @@ namespace Delegate
             Console.WriteLine("===== 多播委托 =====");
             FunMulticastDelegate();
         }
+
+        #region delegate
         // 比较年龄
         private static bool Younger(Student s1, Student s2) => s1.Age <= s2.Age;
         // 比较学号
@@ -65,7 +62,9 @@ namespace Delegate
             foreach (Student stu in stus)
                 Console.WriteLine($"{stu.Name} {stu.Age} {stu.Num} ");
         }
+        #endregion
 
+        #region Action
         private static void FunAction1() =>
             Console.WriteLine("无参，无返回值。");
         private static void FunAction2(int a, string b) =>
@@ -78,7 +77,9 @@ namespace Delegate
             a1();
             a2.Invoke(7, "XQQ");
         }
+        #endregion
 
+        #region Func
         private static string FunFunc1() => "Fun函数";
         private static string FunFunc2(int a, int b) => (a + b).ToString();
         private static void FunFunc()
@@ -99,7 +100,9 @@ namespace Delegate
             bool res = predicate(8);
             Console.WriteLine(res);
         }
+        #endregion
 
+        #region Multicast Delegate
         private delegate int AddDelegate(int a);
         private static void FunMulticastDelegate()
         {
@@ -116,9 +119,10 @@ namespace Delegate
 
             //逐个调用
             Console.WriteLine("逐个调用：");
-            foreach (AddDelegate fun in myAddDelegate.GetInvocationList())
+            foreach (AddDelegate fun in myAddDelegate!.GetInvocationList())
                 Console.WriteLine(fun.Invoke(10));
-        }
+        } 
+        #endregion
     }
     public class Student
     {

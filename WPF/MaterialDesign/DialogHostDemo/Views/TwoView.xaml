@@ -1,0 +1,47 @@
+﻿<Window
+    x:Class="DialogHostDemo.Views.TwoView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:local="clr-namespace:DialogHostDemo.Views"
+    mc:Ignorable="d"
+    Title="TwoView"
+    Height="450"
+    Width="800"
+    xmlns:models="clr-namespace:DialogHostDemo.Models"
+    xmlns:prism="http://prismlibrary.com/"
+    prism:ViewModelLocator.AutoWireViewModel="True"
+    xmlns:md="http://materialdesigninxaml.net/winfx/xaml/themes"
+    xmlns:viewmodels="clr-namespace:DialogHostDemo.ViewModels"
+    d:DataContext="{d:DesignInstance Type=viewmodels:TwoViewModel}">
+    <!--在软件启动的时候同时开多个窗口，下面的属性需要设置为 True。
+    只有被 CreateShell() 返回的 Window 可以不用写。-->
+    <!--prism:ViewModelLocator.AutoWireViewModel="True"-->
+
+    <md:DialogHost
+        Identifier="Two"
+        CloseOnClickAway="True">
+
+        <Button
+            Command="{Binding Path=ShowDialogHostCommand}"
+            Width="160"
+            Content="打开"
+            Margin="0,64,0,0" />
+
+        <md:DialogHost.DialogContentTemplate>
+            <DataTemplate
+                DataType="models:Person">
+                <StackPanel
+                    Margin="20">
+                    <TextBlock
+                        Text="{Binding Name}" />
+                    <TextBlock
+                        Text="{Binding Age}" />
+                </StackPanel>
+            </DataTemplate>
+        </md:DialogHost.DialogContentTemplate>
+
+    </md:DialogHost>
+
+</Window>
