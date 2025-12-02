@@ -37,6 +37,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "MaterialDesign", "MaterialD
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DialogHostDemo", "WPF\MaterialDesign\DialogHostDemo\DialogHostDemo.csproj", "{8F76846B-22E4-4C1B-9567-79939D185D11}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MaterialDesignMessageBox", "WPF\MaterialDesign\MaterialDesignMessageBox\MaterialDesignMessageBox.csproj", "{F18A84DD-487F-4712-8C4F-03FEFE033885}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -91,6 +93,10 @@ Global
 		{8F76846B-22E4-4C1B-9567-79939D185D11}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8F76846B-22E4-4C1B-9567-79939D185D11}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8F76846B-22E4-4C1B-9567-79939D185D11}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F18A84DD-487F-4712-8C4F-03FEFE033885}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F18A84DD-487F-4712-8C4F-03FEFE033885}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F18A84DD-487F-4712-8C4F-03FEFE033885}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F18A84DD-487F-4712-8C4F-03FEFE033885}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -111,6 +117,7 @@ Global
 		{FDE1D556-C5C5-4FCD-8D80-6FCC635E64C2} = {B62E63B9-D479-4227-B683-A52A8CF11F84}
 		{B62E63B9-D479-4227-B683-A52A8CF11F84} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
 		{8F76846B-22E4-4C1B-9567-79939D185D11} = {B62E63B9-D479-4227-B683-A52A8CF11F84}
+		{F18A84DD-487F-4712-8C4F-03FEFE033885} = {B62E63B9-D479-4227-B683-A52A8CF11F84}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {3CB03273-0C93-40C4-9D95-14BFDB053E72}
