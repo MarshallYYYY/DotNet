@@ -22,17 +22,25 @@ namespace Navigate.ViewModels
             //NavigateOne(target);
             NavigateTwo(target);
         }
-        // AAAView：基础区域管理和导航
+        /// <summary>
+        /// 第一种导航函数：基本的请求导航。
+        /// 例：AAAView
+        /// </summary>
+        /// <param name="target"></param>
         private void NavigateOne(string target)
         {
             regionManager.RequestNavigate(Constants.MainViewRegionName, target);
         }
-        // BBBView：导航时向目标View发送消息
+        /// <summary>
+        /// 第一种导航函数：导航时向目标View发送信息（导航参数）。
+        /// 例：BBBView
+        /// </summary>
+        /// <param name="target"></param>
         private void NavigateTwo(string target)
         {
             NavigationParameters pairs = new()
             {
-                { Constants.NavigateParamsKey, "通过 RequestNavigate 函数发送消息" }
+                { Constants.NavigateParamsKey, "MainViewModel 通过 RequestNavigate() 函数发送消息" }
             };
             regionManager.RequestNavigate(Constants.MainViewRegionName, target, pairs);
         }

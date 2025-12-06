@@ -1,9 +1,4 @@
 ﻿using Navigate.Common;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 
 namespace Navigate.ViewModels
@@ -28,7 +23,8 @@ namespace Navigate.ViewModels
                 // 两种写法
                 //string value  = navigationContext.Parameters[Constants.NavigateParamsKey]?.ToString();
                 string value = navigationContext.Parameters.GetValue<string>(Constants.NavigateParamsKey);
-                Info = $"BBBViewModel.cs - INavigationAware 接口 - OnNavigatedTo() 函数\n" +
+                Info =
+                    $"以下信息均由 BBBViewModel.cs - INavigationAware 接口 - OnNavigatedTo() 函数 显示：\n" +
                     $"NavigateParameters Key = {Constants.NavigateParamsKey}\n" +
                     $"NavigateParameters Value = {value}";
             }
@@ -44,8 +40,10 @@ namespace Navigate.ViewModels
         // 该函数不能阻止页面跳转。
         public void OnNavigatedFrom(NavigationContext navigationContext)
         {
-            string msg = "OnNavigatedFrom 函数：即将离开 BBBView\n";
-            // 获取目标视图的URI
+            string msg =
+                "以下信息均由 OnNavigatedFrom() 函数 显示：\n" +
+                "即将离开 BBBView\n";
+            // 获取目标视图的Uri
             Uri targetUri = navigationContext.Uri;
             msg += $"导航到: {targetUri}\n";
 

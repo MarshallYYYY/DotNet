@@ -34,8 +34,27 @@
                 Command="{Binding UnsubCommand}"
                 Content="取消订阅"
                 FontSize="22"
+                Margin="20"
                 Width="150"
                 Height="60" />
+
+            <TextBlock
+                Text="已订阅数量："
+                VerticalAlignment="Center"
+                HorizontalAlignment="Center"
+                Margin="20"
+                Width="150"
+                Height="60"
+                FontSize="22" />
+
+            <TextBlock
+                Text="{Binding Path=SubCount}"
+                VerticalAlignment="Center"
+                HorizontalAlignment="Center"
+                Margin="20"
+                Width="150"
+                Height="60"
+                FontSize="22" />
 
         </StackPanel>
 
