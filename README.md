@@ -286,6 +286,8 @@ protected override void RegisterTypes(IContainerRegistry containerRegistry)
 
 消息的发送、订阅、取消订阅
 
+==没有特殊情况的话，最好只订阅一次！==
+
 `MessageEvent.cs`
 
 ```cs
@@ -313,14 +315,15 @@ private readonly MessageEvent _event;
 _event = ea.GetEvent<MessageEvent>();
 
 private void SubscribeFun(string msg)
-// 订阅的两种方式：① 返回 token
+// 订阅的两种方式：
+// ①：返回 token
 private SubscriptionToken _token;
 _token = _event.Subscribe(SubscribeFun);
-// ② 也可以不用 token
+// ②：也可以不用 token
 _event.Subscribe(SubscribeFun);
 
 // 取消订阅的两种方式：
-_event.Unsubscribe(SubscribeFun);
 _event.Unsubscribe(_token);
+_event.Unsubscribe(SubscribeFun);
 ```
 
