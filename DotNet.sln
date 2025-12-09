@@ -39,6 +39,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DialogHostDemo", "WPF\Mater
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MaterialDesignMessageBox", "WPF\MaterialDesign\MaterialDesignMessageBox\MaterialDesignMessageBox.csproj", "{F18A84DD-487F-4712-8C4F-03FEFE033885}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Multithreading", "C#\Multithreading\Multithreading.csproj", "{F069F7A2-F2F3-43D9-8FCC-FE599E613A82}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AsynchronousProgramming", "C#\AsynchronousProgramming\AsynchronousProgramming.csproj", "{ACEC419C-82F2-4395-BEAD-7C6ADC69B1B0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -97,6 +101,14 @@ Global
 		{F18A84DD-487F-4712-8C4F-03FEFE033885}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F18A84DD-487F-4712-8C4F-03FEFE033885}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F18A84DD-487F-4712-8C4F-03FEFE033885}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F069F7A2-F2F3-43D9-8FCC-FE599E613A82}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F069F7A2-F2F3-43D9-8FCC-FE599E613A82}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F069F7A2-F2F3-43D9-8FCC-FE599E613A82}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F069F7A2-F2F3-43D9-8FCC-FE599E613A82}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ACEC419C-82F2-4395-BEAD-7C6ADC69B1B0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ACEC419C-82F2-4395-BEAD-7C6ADC69B1B0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ACEC419C-82F2-4395-BEAD-7C6ADC69B1B0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ACEC419C-82F2-4395-BEAD-7C6ADC69B1B0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -118,6 +130,8 @@ Global
 		{B62E63B9-D479-4227-B683-A52A8CF11F84} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
 		{8F76846B-22E4-4C1B-9567-79939D185D11} = {B62E63B9-D479-4227-B683-A52A8CF11F84}
 		{F18A84DD-487F-4712-8C4F-03FEFE033885} = {B62E63B9-D479-4227-B683-A52A8CF11F84}
+		{F069F7A2-F2F3-43D9-8FCC-FE599E613A82} = {99EBE5BF-F2C7-4AB4-96CD-985D441D716F}
+		{ACEC419C-82F2-4395-BEAD-7C6ADC69B1B0} = {99EBE5BF-F2C7-4AB4-96CD-985D441D716F}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {3CB03273-0C93-40C4-9D95-14BFDB053E72}

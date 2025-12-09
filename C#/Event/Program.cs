@@ -41,7 +41,7 @@
             _name = name;
         }
 
-        public void KonwsNewCarArrived(object?   sender, CarInfoEventArgs e)
+        public void KonwsNewCarArrived(object? sender, CarInfoEventArgs e)
         {
             Console.WriteLine($"  {_name}: OK, I learn that car {e.Car} arrived.");
         }

@@ -91,7 +91,9 @@
             Console.WriteLine(res1);
             Console.WriteLine(res2);
         }
+        #endregion
 
+        #region Predicate
         private static bool IsMore(int num) => num > 7;
         private static void FunPredict()
         {
@@ -121,7 +123,7 @@
             Console.WriteLine("逐个调用：");
             foreach (AddDelegate fun in myAddDelegate!.GetInvocationList())
                 Console.WriteLine(fun.Invoke(10));
-        } 
+        }
         #endregion
     }
     public class Student
