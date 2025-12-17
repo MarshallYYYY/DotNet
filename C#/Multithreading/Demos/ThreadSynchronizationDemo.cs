@@ -50,6 +50,29 @@ namespace Multithreading.Demos
                 }
             }
         }
+        public static void ByLock2()
+        {
+            Thread thread1 = new Thread(ShowIndex1);
+            Thread thread2 = new Thread(ShowIndex1);
+
+            thread1.Start();
+            thread2.Start();
+
+            thread1.Join();
+            thread2.Join();
+        }
+        static void ShowIndex1()
+        {
+            // 不加锁的时候，两个线程交替打印；
+            // 加锁后，一个线程打印完成后，另外一个线程才开始打印。
+            lock (_lock1)
+            {
+                for (int i = 0; i < Math.Pow(10, 2); i++)
+                {
+                    ThreadLogger.WriteLine(Thread.CurrentThread.ManagedThreadId + "  " + (i + 1));
+                }
+            }
+        }
         #endregion lock
 
         #region Monitor 
@@ -89,7 +112,26 @@ namespace Multithreading.Demos
                     Monitor.Exit(_lock2);
                 }
             }
+        }
+        public static void ByMonitor2()
+        {
+            Thread thread1 = new Thread(ShowIndex2);
+            Thread thread2 = new Thread(ShowIndex2);
 
+            thread1.Start();
+            thread2.Start();
+
+            thread1.Join();
+            thread2.Join();
+        }
+        static void ShowIndex2()
+        {
+            Monitor.Enter(_lock2);
+            for (int i = 0; i < Math.Pow(10, 2); i++)
+            {
+                ThreadLogger.WriteLine(Thread.CurrentThread.ManagedThreadId + "  " + (i + 1));
+            }
+            Monitor.Exit(_lock2);
         }
         #endregion Monitor
 
@@ -110,7 +152,7 @@ namespace Multithreading.Demos
             thread1.Join();
             thread2.Join();
             // 输出最终的 _counter3 值
-            ThreadLogger.WriteLine($"Final balance: {_counter3}");
+            ThreadLogger.WriteLine($"Final: {_counter3}");
 
         }
         /// <summary>
@@ -145,27 +187,30 @@ namespace Multithreading.Demos
         }
         private static void DoWork()
         {
-            ThreadLogger.WriteLine("waiting for mutex");
-
+            ThreadLogger.WriteLine("请求/等待Mutex");
             // 等待互斥锁
             mutex.WaitOne();
-            ThreadLogger.WriteLine("acquired mutex");
-            
+
+            ThreadLogger.WriteLine("★ 进入Mutex");
+
             // 执行临界区代码
-            _counter3 = Environment.CurrentManagedThreadId;
-            ThreadLogger.WriteLine(_counter3.ToString());
-            // TODO: 加上下面的Sleep后，就会有问题，还不清楚为什么。。。 
-            //Thread.Sleep(1000);
+            //_counter3 = Environment.CurrentManagedThreadId;
+            //ThreadLogger.WriteLine(_counter3.ToString());
+            ThreadLogger.WriteLine("★ " + Environment.CurrentManagedThreadId.ToString());
+            Thread.Sleep(1000);
+
+            ThreadLogger.WriteLine("★ 离开Mutex");
 
             // 释放互斥锁
             mutex.ReleaseMutex();
-            ThreadLogger.WriteLine("released mutex");
+            //ThreadLogger.WriteLine("已经释放Mutex");
         }
         #endregion Mutex
 
         #region Semaphore 信号量
         // 最多允许两个线程同时访问
-        private static readonly Semaphore semaphore = new Semaphore(2, 2);
+        private static readonly Semaphore semaphore =
+            new Semaphore(initialCount: 2, maximumCount: 2);
         private static int _counter4 = 0;
         public static void BySemaphore()
         {
@@ -174,20 +219,23 @@ namespace Multithreading.Demos
                 Thread thread = new Thread(IncrementCounter4);
                 thread.Start();
             }
+            Thread.Sleep(5000);
+            ThreadLogger.WriteLine($"Final: {_counter4}");
         }
         private static void IncrementCounter4()
         {
-            // 请求进入
+            // 阻止当前线程，直到当前WaitHandle收到信号。
             semaphore.WaitOne();
             try
             {
-                ThreadLogger.WriteLine($"{Thread.CurrentThread.ManagedThreadId} 在增加counter");
+                ThreadLogger.WriteLine($"在增加counter");
                 _counter4 += 100;
-                Thread.Sleep(1000); // 模拟操作时间
+                // 模拟操作时间
+                Thread.Sleep(1000);
             }
             finally
             {
-                ThreadLogger.WriteLine($"{Thread.CurrentThread.ManagedThreadId} 已经完成");
+                ThreadLogger.WriteLine($"已经完成");
                 // 释放信号量
                 semaphore.Release();
             }
@@ -224,5 +272,68 @@ namespace Multithreading.Demos
             ThreadLogger.WriteLine("Thread 2 结束工作");
         }
         #endregion AutoResetEvent
+
+        #region ManualResetEvent
+        // manualResetEvent用于手动阻止和释放线程。它是在无信号状态下创建的。
+        private readonly static ManualResetEvent manualResetEvent = new ManualResetEvent(false);
+        public static void ByManualResetEvent()
+        {
+            Console.WriteLine("启动在ManualResetEvent上阻塞的3个命名线程\n");
+
+            for (int i = 0; i <= 2; i++)
+            {
+                Thread t = new Thread(ThreadProc);
+                t.Name = "Thread_" + i;
+                t.Start();
+            }
+
+            Thread.Sleep(500);
+            Console.WriteLine("\n当三个线程都启动后，按Enter键调用Set()以释放所有线程\n");
+            Console.ReadLine();
+
+            manualResetEvent.Set();
+
+            Thread.Sleep(500);
+            Console.WriteLine("\n当ManualResetEvent发出信号时，调用WaitOne()的线程不会阻塞，按Enter键显示此内容。\n");
+            Console.ReadLine();
+
+            for (int i = 3; i <= 4; i++)
+            {
+                Thread t = new Thread(ThreadProc);
+                t.Name = "Thread_" + i;
+                t.Start();
+            }
+
+            Thread.Sleep(500);
+            Console.WriteLine("\n按Enter键调用Reset()，以便线程在调用WaitOne()时再次阻塞。\n");
+            Console.ReadLine();
+
+            manualResetEvent.Reset();
+
+            // Start a thread that waits on the ManualResetEvent.
+            Thread t5 = new Thread(ThreadProc);
+            t5.Name = "Thread_5";
+            t5.Start();
+
+            Thread.Sleep(500);
+            Console.WriteLine("\n按Enter键调用Set()并结束演示。");
+            Console.ReadLine();
+
+            manualResetEvent.Set();
+
+            // If you run this example in Visual Studio, uncomment the following line:
+            //Console.ReadLine();
+        }
+        private static void ThreadProc()
+        {
+            string name = Thread.CurrentThread.Name;
+
+            Console.WriteLine(name + " starts and calls manualResetEvent.WaitOne()");
+
+            manualResetEvent.WaitOne();
+
+            Console.WriteLine(name + " ends.");
+        }
+        #endregion
     }
 }
