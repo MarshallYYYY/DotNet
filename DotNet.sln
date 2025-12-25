@@ -43,6 +43,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Multithreading", "C#\Multit
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AsynchronousProgramming", "C#\AsynchronousProgramming\AsynchronousProgramming.csproj", "{ACEC419C-82F2-4395-BEAD-7C6ADC69B1B0}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FileOperations", "C#\FileOperations\FileOperations.csproj", "{3C9BA36D-B632-4105-9946-84DE159E0F7F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -109,6 +111,10 @@ Global
 		{ACEC419C-82F2-4395-BEAD-7C6ADC69B1B0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{ACEC419C-82F2-4395-BEAD-7C6ADC69B1B0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{ACEC419C-82F2-4395-BEAD-7C6ADC69B1B0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3C9BA36D-B632-4105-9946-84DE159E0F7F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3C9BA36D-B632-4105-9946-84DE159E0F7F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3C9BA36D-B632-4105-9946-84DE159E0F7F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3C9BA36D-B632-4105-9946-84DE159E0F7F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -132,6 +138,7 @@ Global
 		{F18A84DD-487F-4712-8C4F-03FEFE033885} = {B62E63B9-D479-4227-B683-A52A8CF11F84}
 		{F069F7A2-F2F3-43D9-8FCC-FE599E613A82} = {99EBE5BF-F2C7-4AB4-96CD-985D441D716F}
 		{ACEC419C-82F2-4395-BEAD-7C6ADC69B1B0} = {99EBE5BF-F2C7-4AB4-96CD-985D441D716F}
+		{3C9BA36D-B632-4105-9946-84DE159E0F7F} = {99EBE5BF-F2C7-4AB4-96CD-985D441D716F}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {3CB03273-0C93-40C4-9D95-14BFDB053E72}
