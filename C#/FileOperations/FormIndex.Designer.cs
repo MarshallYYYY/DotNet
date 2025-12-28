@@ -45,6 +45,10 @@
             this.btnCopy = new System.Windows.Forms.Button();
             this.btnMove = new System.Windows.Forms.Button();
             this.btnRename = new System.Windows.Forms.Button();
+            this.btnOpenXML = new System.Windows.Forms.Button();
+            this.label3 = new System.Windows.Forms.Label();
+            this.btnOpenJson = new System.Windows.Forms.Button();
+            this.btnOpenExcel = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnCreateDirectory
@@ -238,11 +242,59 @@
             this.btnRename.UseVisualStyleBackColor = true;
             this.btnRename.Click += new System.EventHandler(this.BtnRename_Click);
             // 
+            // btnOpenXML
+            // 
+            this.btnOpenXML.AutoSize = true;
+            this.btnOpenXML.Font = new System.Drawing.Font("宋体", 18F);
+            this.btnOpenXML.Location = new System.Drawing.Point(9, 324);
+            this.btnOpenXML.Name = "btnOpenXML";
+            this.btnOpenXML.Size = new System.Drawing.Size(152, 34);
+            this.btnOpenXML.TabIndex = 17;
+            this.btnOpenXML.Text = "打开FormXML";
+            this.btnOpenXML.UseVisualStyleBackColor = true;
+            this.btnOpenXML.Click += new System.EventHandler(this.BtnOpenXML_Click);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("宋体", 18F);
+            this.label3.Location = new System.Drawing.Point(12, 297);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(322, 24);
+            this.label3.TabIndex = 18;
+            this.label3.Text = "----------分割线----------";
+            // 
+            // btnOpenJson
+            // 
+            this.btnOpenJson.AutoSize = true;
+            this.btnOpenJson.Font = new System.Drawing.Font("宋体", 18F);
+            this.btnOpenJson.Location = new System.Drawing.Point(167, 324);
+            this.btnOpenJson.Name = "btnOpenJson";
+            this.btnOpenJson.Size = new System.Drawing.Size(164, 34);
+            this.btnOpenJson.TabIndex = 19;
+            this.btnOpenJson.Text = "打开FormJson";
+            this.btnOpenJson.UseVisualStyleBackColor = true;
+            // 
+            // btnOpenExcel
+            // 
+            this.btnOpenExcel.AutoSize = true;
+            this.btnOpenExcel.Font = new System.Drawing.Font("宋体", 18F);
+            this.btnOpenExcel.Location = new System.Drawing.Point(337, 324);
+            this.btnOpenExcel.Name = "btnOpenExcel";
+            this.btnOpenExcel.Size = new System.Drawing.Size(176, 34);
+            this.btnOpenExcel.TabIndex = 20;
+            this.btnOpenExcel.Text = "打开FormExcel";
+            this.btnOpenExcel.UseVisualStyleBackColor = true;
+            // 
             // FormIndex
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnOpenExcel);
+            this.Controls.Add(this.btnOpenJson);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.btnOpenXML);
             this.Controls.Add(this.btnRename);
             this.Controls.Add(this.btnMove);
             this.Controls.Add(this.btnCopy);
@@ -287,6 +339,10 @@
         private System.Windows.Forms.Button btnCopy;
         private System.Windows.Forms.Button btnMove;
         private System.Windows.Forms.Button btnRename;
+        private System.Windows.Forms.Button btnOpenXML;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Button btnOpenJson;
+        private System.Windows.Forms.Button btnOpenExcel;
     }
 }
 

@@ -3,6 +3,7 @@ using System.IO;
 using System.IO.Pipes;
 using System.Text;
 using System.Windows.Forms;
+using System.Xml;
 
 namespace FileOperations
 {
@@ -217,5 +218,11 @@ namespace FileOperations
             File.Move(filePath, newFilePath);
         }
         #endregion
+
+        private void BtnOpenXML_Click(object sender, EventArgs e)
+        {
+            FormXML form = new FormXML();
+            form.Show();
+        }
     }
 }
