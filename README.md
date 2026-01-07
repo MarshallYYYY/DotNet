@@ -6,11 +6,85 @@
 
 # 项目层级
 
+# C#
+
+## Delegate
+
+## Event
+
+## Multithreading
+
+## AsynchronousProgramming
+
+## FileOperations
+
+* 文件操作
+* XML操作
+* TODO: Json操作
+* TODO: Excel操作
+
 # WPF
 
 ## Basic
 
+### Style
+
+* 基本样式
+* TODO: 样式的继承
+
+### ControlTemplate
+
+
+
 ## MaterialDesign
+
+### ==MaterialDesignTemplate==
+
+[GitHub - MaterialDesignInXamlToolkit](https://github.com/MaterialDesignInXAML/MaterialDesignInXamlToolkit)
+
+[GitHub - MaterialDesignInXamlToolkit - wiki - Version 3.0.0 through 4.9.0](https://github.com/MaterialDesignInXAML/MaterialDesignInXamlToolkit/wiki/Getting-Started#version-300-through-490)
+
+
+
+```xaml
+<Application
+    x:Class="MaterialDesignTemplate.App"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="clr-namespace:MaterialDesignTemplate"
+    xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+    StartupUri="MainWindow.xaml">
+
+    <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <materialDesign:BundledTheme
+                    BaseTheme="Light"
+                    PrimaryColor="DeepPurple"
+                    SecondaryColor="Lime" />
+                <ResourceDictionary
+                    Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Defaults.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Application.Resources>
+
+</Application>
+```
+
+
+
+### DialogHostDemo
+
+```
+md:DialogHost
+	md:DialogHost.DialogContent
+```
+
+### MaterialDesignMessageBox
+
+使用 MDIX 制作的一个替代 `MessageBox.Show()` 的工具
+
+
 
 ## Prism
 
