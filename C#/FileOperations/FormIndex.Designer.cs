@@ -274,6 +274,7 @@
             this.btnOpenJson.TabIndex = 19;
             this.btnOpenJson.Text = "打开FormJson";
             this.btnOpenJson.UseVisualStyleBackColor = true;
+            this.btnOpenJson.Click += new System.EventHandler(this.BtnOpenJson_Click);
             // 
             // btnOpenExcel
             // 
@@ -285,6 +286,7 @@
             this.btnOpenExcel.TabIndex = 20;
             this.btnOpenExcel.Text = "打开FormExcel";
             this.btnOpenExcel.UseVisualStyleBackColor = true;
+            this.btnOpenExcel.Click += new System.EventHandler(this.BtnOpenExcel_Click);
             // 
             // FormIndex
             // 

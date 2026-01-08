@@ -224,5 +224,15 @@ namespace FileOperations
             FormXML form = new FormXML();
             form.Show();
         }
+
+        private void BtnOpenJson_Click(object sender, EventArgs e)
+        {
+            new FormJson().Show();
+        }
+
+        private void BtnOpenExcel_Click(object sender, EventArgs e)
+        {
+            new FormExcel().Show();
+        }
     }
 }
