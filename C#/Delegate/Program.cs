@@ -28,9 +28,11 @@
         {
             Student s1 = new() { Name = "小红", Age = 10, Num = 1001 };
             Student s2 = new() { Name = "小华", Age = 9, Num = 1002 };
-            List<Student> stus = new();
-            stus.Add(s1);
-            stus.Add(s2);
+            //List<Student> stus = new();
+            //stus.Add(s1);
+            //stus.Add(s2);
+            // 简化集合初始化：
+            List<Student> stus = [s1, s2];
 
             // 以下两种方法等价
             CompareDelegate younger1 = new CompareDelegate(Younger);
