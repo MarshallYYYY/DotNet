@@ -8,11 +8,11 @@
     /// </summary>
     public interface ICoffeeFactory
     {
-        ICoffee MakeCoffee();
+        AbstractCoffee MakeCoffee();
     }
     public class AmericaCoffeeFactory : ICoffeeFactory
     {
-        public ICoffee MakeCoffee()
+        public AbstractCoffee MakeCoffee()
         {
             Console.WriteLine("美国咖啡工厂生产了美式咖啡");
             return new Americano();
@@ -20,7 +20,7 @@
     }
     public class ItalyCoffeeFactory : ICoffeeFactory
     {
-        public ICoffee MakeCoffee()
+        public AbstractCoffee MakeCoffee()
         {
             Console.WriteLine("意大利咖啡工厂生产了拿铁咖啡");
             return new LatteCoffee();

@@ -6,10 +6,10 @@
     /// </summary>
     public static class ReflectFactory
     {
-        public static ICoffee MakeCoffee(string coffeeName)
+        public static AbstractCoffee MakeCoffee(string coffeeName)
         {
             Type type = Type.GetType(coffeeName)!;
-            ICoffee? coffee = type.Assembly.CreateInstance(coffeeName) as ICoffee;
+            AbstractCoffee? coffee = type.Assembly.CreateInstance(coffeeName) as AbstractCoffee;
             return coffee!;
         }
     }

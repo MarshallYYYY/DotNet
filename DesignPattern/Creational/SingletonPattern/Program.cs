@@ -39,13 +39,13 @@
 
             for (int i = 0; i < 2; i++)
             {
-                Thread thread = new(ExecuteInForeground);
+                Thread thread = new(DoWork);
                 thread.Start();
             }
         }
 
 
-        private static void ExecuteInForeground()
+        private static void DoWork()
         {
             Console.WriteLine("Thread {0}: {1}, Priority {2}",
                               Thread.CurrentThread.ManagedThreadId,

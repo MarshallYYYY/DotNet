@@ -1,15 +1,15 @@
 ﻿namespace FactoryPattern
 {
-    public interface ICoffee
+    public abstract class AbstractCoffee
     {
-        void ShowInfo();
+        public abstract void ShowInfo();
     }
     /// <summary>
     /// 美式咖啡
     /// </summary>
-    public class Americano : ICoffee
+    public class Americano : AbstractCoffee
     {
-        public void ShowInfo()
+        public override void ShowInfo()
         {
             Console.WriteLine("这是：美式咖啡");
         }
@@ -17,9 +17,9 @@
     /// <summary>
     /// 拿铁咖啡
     /// </summary>
-    public class LatteCoffee : ICoffee
+    public class LatteCoffee : AbstractCoffee
     {
-        public void ShowInfo()
+        public override void ShowInfo()
         {
             Console.WriteLine("这是：拿铁咖啡");
         }
@@ -37,7 +37,7 @@
     /// </summary>
     public class SimpleFactory
     {
-        public static ICoffee? MakeCoffee(CoffeeEnum coffee)
+        public static AbstractCoffee MakeCoffee(CoffeeEnum coffee)
         {
             switch (coffee)
             {
@@ -46,7 +46,7 @@
                 case CoffeeEnum.LatteCoffee:
                     return new LatteCoffee();
                 default:
-                    return null;
+                    return null!;
             }
         }
     }

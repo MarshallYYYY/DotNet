@@ -13,11 +13,16 @@
 
         private Singleton2()
         {
-            
+
         }
 
         public static Singleton2 Instance()
         {
+            //if (instance == null)
+            //{
+            //   instance = new Singleton2();
+            //}
+            //return instance;
             return instance ??= new Singleton2();
         }
 
@@ -31,7 +36,7 @@
 
         public void GetInfo()
         {
-            Console.WriteLine(string.Format("I am {0}.",this.GetType().Name));
+            Console.WriteLine(string.Format("I am {0}.", this.GetType().Name));
         }
     }
 }

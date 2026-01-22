@@ -1,46 +1,43 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace FactoryPattern
+﻿namespace FactoryPattern
 {
-    internal class AbstractFactory
+    public abstract class AbstractDessert
     {
+        public abstract void ShowInfo();
     }
-    public interface IDessert
+    public class Tiramisu : AbstractDessert
     {
-        void ShowInfo();
-    }
-    public class Tiramisu : IDessert
-    {
-        public void ShowInfo()
+        public override void ShowInfo()
         {
             Console.WriteLine("这是：提拉米苏");
         }
     }
-    public class MatchMousse : IDessert
+    public class MatchMousse : AbstractDessert
     {
-        public void ShowInfo()
+        public override void ShowInfo()
         {
             Console.WriteLine("这是：抹茶慕斯");
         }
     }
+    /// <summary>
+    /// 抽象工厂模式：
+    /// 抽象工厂是应对产品族概念的，
+    /// 比如说，每个公司可能要同时生产咖啡、甜点，那么每一个工厂都要有制作咖啡和甜点的方法。
+    /// 应对产品族概念而生，增加新的产品线很容易，但是无法增加新的产品。
+    /// </summary>
     public interface IFactory
     {
-        ICoffee MakeCoffee();
-        IDessert MakeDessert();
+        AbstractCoffee MakeCoffee();
+        AbstractDessert MakeDessert();
     }
     public class AmericaFactory : IFactory
     {
-        public ICoffee MakeCoffee()
+        public AbstractCoffee MakeCoffee()
         {
             Console.WriteLine("美国工厂生产了美式咖啡");
             return new Americano();
         }
 
-        public IDessert MakeDessert()
+        public AbstractDessert MakeDessert()
         {
             Console.WriteLine("美国工厂生产了提拉米苏");
             return new Tiramisu();
@@ -48,13 +45,13 @@ namespace FactoryPattern
     }
     public class ItalyFactory : IFactory
     {
-        public ICoffee MakeCoffee()
+        public AbstractCoffee MakeCoffee()
         {
             Console.WriteLine("意大利工厂生产了拿铁咖啡");
             return new LatteCoffee();
         }
 
-        public IDessert MakeDessert()
+        public AbstractDessert MakeDessert()
         {
             Console.WriteLine("意大利工厂生产了抹茶慕斯");
             return new MatchMousse();
