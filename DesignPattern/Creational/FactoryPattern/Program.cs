@@ -1,4 +1,5 @@
-﻿
+﻿// 这个项目里的关于工厂和产品的接口、抽象类、类，散落在各个.cs文件中，
+// 是随着工厂模式的不断演化而逐步新增的。
 
 namespace FactoryPattern
 {
@@ -6,9 +7,13 @@ namespace FactoryPattern
     {
         static void Main(string[] args)
         {
+            //简单工厂：简单实用，但违反开放封闭
             TestSimpleFactory();
+            //反射工厂：可以最大限度的解耦
             TestReflectFactory();
+            //工厂方法：开放封闭，单一产品
             TestFactoryMethod();
+            //抽象工厂：开放封闭，多个产品
             TestAbstractFactory();
         }
 
