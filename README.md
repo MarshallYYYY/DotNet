@@ -20,8 +20,8 @@
 
 * 文件操作
 * XML操作
-* TODO: Json操作
-* TODO: Excel操作
+* Json操作
+* Excel操作
 
 # WPF
 

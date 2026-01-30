@@ -6,8 +6,8 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{F1D2EC47-4506-4286-A08F-870529FA9184}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>UdpServer</RootNamespace>
-    <AssemblyName>UdpServer</AssemblyName>
+    <RootNamespace>UdpServerDemo</RootNamespace>
+    <AssemblyName>UdpServerDemo</AssemblyName>
     <TargetFrameworkVersion>v4.8.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>

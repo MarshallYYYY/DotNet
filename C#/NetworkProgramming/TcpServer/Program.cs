@@ -7,7 +7,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace TcpServer
+namespace TcpServerDemo
 {
     internal class Program
     {
@@ -87,8 +87,8 @@ namespace TcpServer
                 Socket client = server.Accept();
                 clients.Add(client);
                 Console.WriteLine($"新的用户连接{client.RemoteEndPoint}");
-                Thread th = new Thread(() => HandleClient(client));
-                th.Start();
+                Thread thread = new Thread(() => HandleClient(client));
+                thread.Start();
             }
         }
         static void HandleClient(Socket client)

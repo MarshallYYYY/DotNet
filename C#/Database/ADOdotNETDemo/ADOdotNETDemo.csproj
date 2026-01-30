@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{779081DF-4E3D-401C-971A-E3CB8350CEB5}</ProjectGuid>
+    <ProjectGuid>{4C83F259-4CFF-4DF3-8781-B782DC3B9283}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>TcpClient</RootNamespace>
-    <AssemblyName>TcpClient</AssemblyName>
+    <RootNamespace>ADOdotNETDemo</RootNamespace>
+    <AssemblyName>ADOdotNETDemo</AssemblyName>
     <TargetFrameworkVersion>v4.8.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
