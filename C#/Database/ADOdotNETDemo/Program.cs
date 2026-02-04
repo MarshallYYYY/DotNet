@@ -12,80 +12,62 @@ namespace ADOdotNETDemo
     {
         static void Main(string[] args)
         {
-            GetUsersByDataTableDetailed();
-            GetUsersByDataTableBrief();
+            string userName1 = "Mike";
+            string userName2 = "Jack";
+
+            DeleteUser(userName1);
+
+            GetUsersByDataTable();
             GetUsersByDataReader();
 
             GetUserById(1);
-            string userName = "ABC";
-            InsertUser(userName, "123456");
-            GetUsersByDataTableBrief();
-            UpdateUser(userName, "123123");
-            GetUsersByDataTableBrief();
-            DeleteUser(userName);
-            GetUsersByDataTableBrief();
+
+            InsertUser(userName2, "123456");
+            GetUsersByDataTable();
+
+            UpdateUser(userName2, "123123");
+            GetUsersByDataTable();
+
+            DeleteUser(userName2);
+            GetUsersByDataTable();
+
             GetUsersCount();
 
             UseProcedure();
             //UseTransaction("admin", "111222");
-            UseTransaction("newName", "111222");
-            GetUsersByDataTableBrief();
+            UseTransaction(userName1, "111222");
+            GetUsersByDataTable();
         }
         //private const string connStr = "Server=localhost\\MSSQLSERVER01;Database=LearnDb;Trusted_Connection=true;";
         private const string connStr = "Data Source=.\\MSSQLSERVER01;Database=LearnDb;UID=SSMS21;PWD=YYYXUEBING";
 
-        private static void GetUsersByDataTableDetailed()
+        #region 查询
+        private static void GetUsersByDataTable()
         {
-            SqlConnection conn = new SqlConnection
+            using (SqlConnection conn = new SqlConnection(connStr))
             {
-                ConnectionString = connStr,
-            };
-
-            SqlCommand cmd = conn.CreateCommand();
-            cmd.Connection = conn;
-            cmd.CommandText = "SELECT * FROM Users";
-            SqlDataAdapter adapter = new SqlDataAdapter
-            {
-                SelectCommand = cmd
-            };
-
-            // 多表的情况下使用这个方案
-            DataSet ds = new DataSet();
-            adapter.Fill(ds);
-            DataTable table = ds.Tables[0];
-
-            for (int i = 0; i < table.Rows.Count; i++)
-            {
-                for (int j = 0; j < table.Columns.Count; j++)
+                // 使用 using 语句创建 Command
+                using (SqlCommand cmd = new SqlCommand("SELECT * FROM Users", conn))
                 {
-                    Console.Write($"{table.Rows[i][j]}\t");
+                    // 直接传递 Command 给 SqlDataAdapter 构造函数
+                    using (SqlDataAdapter adapter = new SqlDataAdapter(cmd))
+                    {
+                        // 多表的情况下使用这个方案
+                        DataSet ds = new DataSet();
+                        adapter.Fill(ds);
+                        DataTable table = ds.Tables[0];
+
+                        for (int i = 0; i < table.Rows.Count; i++)
+                        {
+                            for (int j = 0; j < table.Columns.Count; j++)
+                            {
+                                Console.Write($"{table.Rows[i][j]}\t");
+                            }
+                            Console.WriteLine();
+                        }
+                    }
                 }
-                Console.WriteLine();
             }
-
-            conn.Dispose();
-            Console.WriteLine("--------------------");
-        }
-        private static void GetUsersByDataTableBrief()
-        {
-            SqlConnection conn = new SqlConnection(connStr);
-            conn.Open();
-
-            SqlDataAdapter adapter = new SqlDataAdapter("SELECT * FROM Users", conn);
-
-            DataTable table = new DataTable();
-            adapter.Fill(table);
-
-            for (int i = 0; i < table.Rows.Count; i++)
-            {
-                for (int j = 0; j < table.Columns.Count; j++)
-                {
-                    Console.Write($"{table.Rows[i][j]}\t");
-                }
-                Console.WriteLine();
-            }
-
-            conn.Dispose();
             Console.WriteLine("--------------------");
         }
         private static void GetUsersByDataReader()
@@ -125,6 +107,20 @@ namespace ADOdotNETDemo
             conn.Close();
             Console.WriteLine("--------------------");
         }
+
+        private static void GetUsersCount()
+        {
+            SqlConnection conn = new SqlConnection(connStr);
+            conn.Open();
+            string sql = "SELECT COUNT(*) FROM Users";
+            SqlCommand cmd = new SqlCommand(sql, conn);
+            int count = Convert.ToInt32(cmd.ExecuteScalar());
+            Console.WriteLine($"Users表共有 {count} 条数据");
+            conn.Close();
+        }
+        #endregion 查询
+
+        #region 插入、修改、删除
         private static void InsertUser(string userName, string password)
         {
             SqlConnection conn = new SqlConnection(connStr);
@@ -160,16 +156,9 @@ namespace ADOdotNETDemo
             Console.WriteLine($"成功删除 {rows} 条数据");
             conn.Close();
         }
-        private static void GetUsersCount()
-        {
-            SqlConnection conn = new SqlConnection(connStr);
-            conn.Open();
-            string sql = "SELECT COUNT(*) FROM Users";
-            SqlCommand cmd = new SqlCommand(sql, conn);
-            int count = Convert.ToInt32(cmd.ExecuteScalar());
-            Console.WriteLine($"Users表共有 {count} 条数据");
-            conn.Close();
-        }
+        #endregion 插入、修改、删除
+
+        #region 高级
         private static void UseProcedure()
         {
             Console.WriteLine("--------------------");
@@ -248,5 +237,6 @@ namespace ADOdotNETDemo
 
             Console.WriteLine("--------------------");
         }
+        #endregion
     }
 }

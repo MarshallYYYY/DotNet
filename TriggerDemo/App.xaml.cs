@@ -2,7 +2,7 @@
 using System.Data;
 using System.Windows;
 
-namespace Style
+namespace TriggerDemo
 {
     /// <summary>
     /// Interaction logic for App.xaml
@@ -12,8 +12,11 @@ namespace Style
         protected override void OnStartup(StartupEventArgs e)
         {
             base.OnStartup(e);
+
             new MainWindow().Show();
-            new StyleInheritWindow().Show();
+            new MultiTriggerWindow().Show();
+            new EventTriggerWindow().Show();
+            new DataTriggerWindow().Show();
         }
     }
 

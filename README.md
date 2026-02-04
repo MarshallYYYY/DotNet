@@ -8,33 +8,52 @@
 
 # C#
 
-## Delegate
+## Delegate 委托
 
-## Event
+## Event 事件
 
-## Multithreading
+## Multithreading 多线程
 
-## AsynchronousProgramming
+## AsynchronousProgramming 异步编程
 
-## FileOperations
+## FileOperations 文件操作
 
 * 文件操作
 * XML操作
 * Json操作
+  * Newtonsoft.Json
 * Excel操作
+  * Microsoft Excel 16.0 Object Library（Microsoft.Office.Interop.Excel）
+
+## NetworkProgramming 网络编程
+
+* TCP服务端和客户端
+* UDP服务端和客户端
+
+## Database 数据库
+
+1. ADO.NET
+2. TODO：EF6，EFCore
 
 # WPF
 
 ## Basic
 
-### Style
+### Style 样式
 
 * 基本样式
-* TODO: 样式的继承
+* 样式的继承
 
-### ControlTemplate
+### ControlTemplate 控件模板
 
+### TriggerDemo 触发器
 
+触发器的类型：
+
+1. `Trigger` 基本（鼠标悬停、点击等）
+2. `MultiTrigger` 多条件触发器
+3. `EventTrigger` 事件触发器
+4. `DataTrigger` 数据触发器
 
 ## MaterialDesign
 
@@ -356,7 +375,7 @@ protected override void RegisterTypes(IContainerRegistry containerRegistry)
 
 
 
-### PubSubEvent
+### PubSubEvent `IEventAggregator`
 
 消息的发送、订阅、取消订阅
 

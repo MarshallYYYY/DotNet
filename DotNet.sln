@@ -79,6 +79,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Database", "Database", "{D4
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ADOdotNETDemo", "C#\Database\ADOdotNETDemo\ADOdotNETDemo.csproj", "{4C83F259-4CFF-4DF3-8781-B782DC3B9283}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TriggerDemo", "TriggerDemo\TriggerDemo.csproj", "{5F7DDE74-64D0-4722-9D82-6C84253B660E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -193,6 +195,10 @@ Global
 		{4C83F259-4CFF-4DF3-8781-B782DC3B9283}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4C83F259-4CFF-4DF3-8781-B782DC3B9283}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4C83F259-4CFF-4DF3-8781-B782DC3B9283}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5F7DDE74-64D0-4722-9D82-6C84253B660E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5F7DDE74-64D0-4722-9D82-6C84253B660E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5F7DDE74-64D0-4722-9D82-6C84253B660E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5F7DDE74-64D0-4722-9D82-6C84253B660E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -233,6 +239,7 @@ Global
 		{6CE74CFD-15E9-4E08-9925-7291F7A8A790} = {9470D37E-74CF-4983-A956-C966F49C043B}
 		{D489792C-4634-4CA4-B965-C219C4DE51A0} = {99EBE5BF-F2C7-4AB4-96CD-985D441D716F}
 		{4C83F259-4CFF-4DF3-8781-B782DC3B9283} = {D489792C-4634-4CA4-B965-C219C4DE51A0}
+		{5F7DDE74-64D0-4722-9D82-6C84253B660E} = {5013F023-55B1-4DB7-B08E-AD2D887966E3}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {3CB03273-0C93-40C4-9D95-14BFDB053E72}
