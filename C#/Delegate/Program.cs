@@ -11,7 +11,7 @@
             Console.WriteLine("===== Func =====");
             FunFunc();
             Console.WriteLine("===== Predict =====");
-            FunPredict();
+            FunPredicate();
             Console.WriteLine("===== 多播委托 =====");
             FunMulticastDelegate();
         }
@@ -97,7 +97,7 @@
 
         #region Predicate
         private static bool IsMore(int num) => num > 7;
-        private static void FunPredict()
+        private static void FunPredicate()
         {
             // Predicate泛型委托需要传入一个T类型的参数，并且需要返回一个bool类型的返回值。
             Predicate<int> predicate = IsMore;

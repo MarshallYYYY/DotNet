@@ -10,11 +10,23 @@
 
 ## Delegate 委托
 
+1. 自定义委托
+2. Action
+3. Func
+4. Predicate
+
 ## Event 事件
+
+1. 自定义事件类 `CarInfoEventArgs` 继承 `EventArgs`
+2. `public event EventHandler<CarInfoEventArgs>? NewCarEvent;`
 
 ## Multithreading 多线程
 
+
+
 ## AsynchronousProgramming 异步编程
+
+
 
 ## FileOperations 文件操作
 
@@ -41,19 +53,39 @@
 
 ### Style 样式
 
-* 基本样式
-* 样式的继承
+* 基本样式 - MainWindow.xaml
+  * Window.Resources - Style(x:Key, TargetType) - Setter(Property, Value)
+* 样式的继承 - StyleInheritWindow.xaml
+  * Style标签额外添加BasedOn属性即可
 
 ### ControlTemplate 控件模板
+
+1. Window.Resources - ControlTemplate
+2. 控件使用：`Template="{StaticResource myBtnTemplate}"`
 
 ### TriggerDemo 触发器
 
 触发器的类型：
 
 1. `Trigger` 基本（鼠标悬停、点击等）
+   1. Window.Resources - Style - Style.Triggers - Trigger - Setter
 2. `MultiTrigger` 多条件触发器
+   1. Window.Resources - Style - Style.Triggers - MultiTrigger - 
+      1. MultiTrigger.Conditions - Condition
+      2. MultiTrigger.Setters - Setter
 3. `EventTrigger` 事件触发器
+   1. Window.Resources - Style - Style.Triggers - EventTrigger(RoutedEvent) - EventTrigger.Actions
 4. `DataTrigger` 数据触发器
+   1. Window.Resources - Style - Style.Triggers - DataTrigger(Binding, Value) - Setter
+
+### DependencyPropertyDemo 依赖属性
+
+
+
+### ConverterDemo 转换器
+
+1. 单值转换器 IValueConverter
+2. 多值转换器 IMultiValueConverter
 
 ## MaterialDesign
 
