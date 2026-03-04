@@ -85,6 +85,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TriggerDemo", "WPF\Basic\Tr
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConverterDemo", "WPF\Basic\ConverterDemo\ConverterDemo.csproj", "{3687BA52-3B60-4A34-8E20-57AFC2873555}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BehaviorDemo", "WPF\Basic\BehaviorDemo\BehaviorDemo.csproj", "{DD8AE47F-F0F2-4942-B0F3-52A454F0174F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -211,6 +213,10 @@ Global
 		{3687BA52-3B60-4A34-8E20-57AFC2873555}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3687BA52-3B60-4A34-8E20-57AFC2873555}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3687BA52-3B60-4A34-8E20-57AFC2873555}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DD8AE47F-F0F2-4942-B0F3-52A454F0174F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DD8AE47F-F0F2-4942-B0F3-52A454F0174F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DD8AE47F-F0F2-4942-B0F3-52A454F0174F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DD8AE47F-F0F2-4942-B0F3-52A454F0174F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -254,6 +260,7 @@ Global
 		{0F0DBA58-AB8E-4E7A-8E58-1F355EB3787A} = {5013F023-55B1-4DB7-B08E-AD2D887966E3}
 		{D884DBA7-6336-CA0D-13EC-F8A0DCC2A227} = {5013F023-55B1-4DB7-B08E-AD2D887966E3}
 		{3687BA52-3B60-4A34-8E20-57AFC2873555} = {5013F023-55B1-4DB7-B08E-AD2D887966E3}
+		{DD8AE47F-F0F2-4942-B0F3-52A454F0174F} = {5013F023-55B1-4DB7-B08E-AD2D887966E3}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {3CB03273-0C93-40C4-9D95-14BFDB053E72}
