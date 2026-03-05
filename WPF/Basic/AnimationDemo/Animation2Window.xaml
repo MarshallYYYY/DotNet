@@ -1,0 +1,49 @@
+﻿<Window
+    x:Class="AnimationDemo.Animation2Window"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:local="clr-namespace:AnimationDemo"
+    mc:Ignorable="d"
+    Title="Animation2Window"
+    Height="450"
+    Width="800">
+
+    <Window.Resources>
+        <Storyboard
+            x:Key="storyboard">
+            <DoubleAnimation
+                Duration="0:0:1"
+                From="50"
+                To="300"
+                Storyboard.TargetName="border"
+                Storyboard.TargetProperty="Width" />
+        </Storyboard>
+    </Window.Resources>
+
+    <!--(Resources["storyboard"] as Storyboard).Begin();-->
+    <!--也可以通过在点击函数中开启故事板-->
+    <Window.Triggers>
+        <EventTrigger
+            RoutedEvent="Button.Click"
+            SourceName="btnBegin">
+            <BeginStoryboard
+                Storyboard="{StaticResource storyboard}" />
+        </EventTrigger>
+    </Window.Triggers>
+
+    <StackPanel>
+        <Button
+            Content="动画"
+            DockPanel.Dock="Bottom"
+            Height="30"
+            Width="120"
+            Name="btnBegin" />
+        <Border
+            x:Name="border"
+            Background="Yellow"
+            Height="50"
+            Width="50" />
+    </StackPanel>
+</Window>

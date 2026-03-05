@@ -87,6 +87,20 @@
 1. 单值转换器 IValueConverter
 2. 多值转换器 IMultiValueConverter
 
+
+
+### BehaviorDemo 行为
+
+* `xmlns:i="http://schemas.microsoft.com/xaml/behaviors"`
+* `i:Interaction.Behaviors`
+* `i:Interaction.Triggers`
+
+### AnimationDemo 动画
+
+1. Storyboard
+   1. DoubleAnimation
+   2. DoubleAnimationUsingKeyFrames - LinearDoubleKeyFrame
+
 ## MaterialDesign
 
 ### ==MaterialDesignTemplate==
