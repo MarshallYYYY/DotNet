@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace SingletonPattern
+﻿namespace SingletonPattern
 {
     /// <summary>
     /// 单例模式实现方式三：
