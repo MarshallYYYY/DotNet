@@ -4,7 +4,9 @@
 
 记录.NET的各方面知识点，以尽可能小的Demo形式进行展示。
 
-# 项目层级
+2026-9-11 21:57:19：
+
+项目查看顺序请以当前文档中的顺序为准。
 
 # C#
 
@@ -44,26 +46,65 @@
 
 ## Database 数据库
 
+### ADOdotNETDemo（控制台 + .NET Framework 4.8.1）
+
 1. ADO.NET
 2. TODO：EF6，EFCore
+
+# SQLServer
+
+## 存储过程 PROCEDURE.sql
+
+1. 建库 LearnDb
+2. 建表 Users
+3. 插入测试数据
+
+
+
+存储过程：
+
+1. 二、创建一个最简单的存储过程（无参数）：查询所有用户
+2. 三、带输入参数的存储过程（最常见）：根据用户名查询用户
+3. 四、带输出参数的存储过程：判断用户是否存在
+4. 五、用于新增数据的存储过程（Insert）：新增用户并返回新用户 Id
+5. 六、带事务和异常处理的存储过程（进阶）：注册用户（防止重复）
+
+
+
+## 索引 INDEX.sql
+
+1. 添加400万条数据测试数据
+2. 无索引时查询
+3. 创建索引
+4. 有索引时查询
+5. 移除索引
+6. 禁用索引
+7. 启用/重新构建索引
+
+
+
+# 事务 TRANSACTION.sql
+
+1. 根据目标用户名更新密码，有错误就回滚事务，没错误就提交事务
+2. 查看当前输入的用户名是否存在，若存在就抛出异常、捕捉异常、进行提示；若不存在就根据输入的用户名和密码进行新增用户，并提示。
 
 # WPF
 
 ## Basic
 
-### Style 样式
+### Style 样式（.NET 8）
 
 * 基本样式 - MainWindow.xaml
   * Window.Resources - Style(x:Key, TargetType) - Setter(Property, Value)
 * 样式的继承 - StyleInheritWindow.xaml
   * Style标签额外添加BasedOn属性即可
 
-### ControlTemplate 控件模板
+### ControlTemplate 控件模板（.NET 8）
 
 1. Window.Resources - ControlTemplate
 2. 控件使用：`Template="{StaticResource myBtnTemplate}"`
 
-### TriggerDemo 触发器
+### TriggerDemo 触发器（.NET 8）
 
 触发器的类型：
 
@@ -78,24 +119,24 @@
 4. `DataTrigger` 数据触发器
    1. Window.Resources - Style - Style.Triggers - DataTrigger(Binding, Value) - Setter
 
-### DependencyPropertyDemo 依赖属性
+### DependencyPropertyDemo 依赖属性（.NET 8）
 
 
 
-### ConverterDemo 转换器
+### ConverterDemo 转换器（.NET 8）
 
 1. 单值转换器 IValueConverter
 2. 多值转换器 IMultiValueConverter
 
 
 
-### BehaviorDemo 行为
+### BehaviorDemo 行为（.NET 8）
 
 * `xmlns:i="http://schemas.microsoft.com/xaml/behaviors"`
 * `i:Interaction.Behaviors`
 * `i:Interaction.Triggers`
 
-### AnimationDemo 动画
+### AnimationDemo 动画（.NET 8）
 
 1. Storyboard
    1. DoubleAnimation

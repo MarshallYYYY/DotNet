@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Data;
 using System.Data.SqlClient;
 
@@ -10,6 +10,8 @@ namespace ADOdotNETDemo
 {
     internal class Program
     {
+        //private const string connStr = "Server=localhost\\MSSQLSERVER01;Database=LearnDb;Trusted_Connection=true;";
+        private const string connStr = "Data Source=.\\MSSQLSERVER01;Database=LearnDb;UID=SSMS21;PWD=YYYXUEBING";
         static void Main(string[] args)
         {
             string userName1 = "Mike";
@@ -38,8 +40,6 @@ namespace ADOdotNETDemo
             UseTransaction(userName1, "111222");
             GetUsersByDataTable();
         }
-        //private const string connStr = "Server=localhost\\MSSQLSERVER01;Database=LearnDb;Trusted_Connection=true;";
-        private const string connStr = "Data Source=.\\MSSQLSERVER01;Database=LearnDb;UID=SSMS21;PWD=YYYXUEBING";
 
         #region 查询
         private static void GetUsersByDataTable()

@@ -1,4 +1,4 @@
---½¨¿â
+--å»ºåº“
 CREATE DATABASE LearnDb
 ON 
 (
@@ -8,7 +8,7 @@ ON
 
 USE LearnDb;
 
-------Ò»¡¢×¼±¸Ê¾Àý±í£¨ÓÃ»§±í£©------
+------ä¸€ã€å‡†å¤‡ç¤ºä¾‹è¡¨ï¼ˆç”¨æˆ·è¡¨ï¼‰------
 CREATE TABLE Users
 (
     Id INT IDENTITY(1,1) PRIMARY KEY,
@@ -16,14 +16,14 @@ CREATE TABLE Users
     Password NVARCHAR(50) NOT NULL,
     CreateTime DATETIME NOT NULL DEFAULT GETDATE()
 );
---²åÈëÒ»µã²âÊÔÊý¾Ý£º
+--æ’å…¥ä¸€ç‚¹æµ‹è¯•æ•°æ®ï¼š
 INSERT INTO Users (UserName, Password)
 VALUES 
 ('admin', '123456'),
 ('test', 'abcdef');
 
-------¶þ¡¢´´½¨Ò»¸ö×î¼òµ¥µÄ´æ´¢¹ý³Ì£¨ÎÞ²ÎÊý£©------
---Ê¾Àý£º²éÑ¯ËùÓÐÓÃ»§
+------äºŒã€åˆ›å»ºä¸€ä¸ªæœ€ç®€å•çš„å­˜å‚¨è¿‡ç¨‹ï¼ˆæ— å‚æ•°ï¼‰------
+--ç¤ºä¾‹ï¼šæŸ¥è¯¢æ‰€æœ‰ç”¨æˆ·
 CREATE PROCEDURE usp_GetAllUsers
 AS
 BEGIN
@@ -31,13 +31,13 @@ BEGIN
     FROM Users;
 END
 
---µ÷ÓÃ·½Ê½ ¢Ù
+--è°ƒç”¨æ–¹å¼ â‘ 
 EXEC usp_GetAllUsers;
---µ÷ÓÃ·½Ê½¢Ú
+--è°ƒç”¨æ–¹å¼â‘¡
 EXECUTE usp_GetAllUsers;
 
-------Èý¡¢´øÊäÈë²ÎÊýµÄ´æ´¢¹ý³Ì£¨×î³£¼û£©------
---Ê¾Àý£º¸ù¾ÝÓÃ»§Ãû²éÑ¯ÓÃ»§
+------ä¸‰ã€å¸¦è¾“å…¥å‚æ•°çš„å­˜å‚¨è¿‡ç¨‹ï¼ˆæœ€å¸¸è§ï¼‰------
+--ç¤ºä¾‹ï¼šæ ¹æ®ç”¨æˆ·åæŸ¥è¯¢ç”¨æˆ·
 CREATE PROCEDURE usp_GetUserByUserName
     @UserName NVARCHAR(50)
 AS
@@ -47,15 +47,15 @@ BEGIN
     WHERE UserName = @UserName;
 END
 
---µ÷ÓÃ·½Ê½ ¢Ù
+--è°ƒç”¨æ–¹å¼ â‘ 
 EXEC usp_GetUserByUserName 'admin';
---µ÷ÓÃ·½Ê½¢Ú
--- ÍÆ¼öÐ´·¨£¨¿É¶ÁÐÔ¸üºÃ£©
+--è°ƒç”¨æ–¹å¼â‘¡
+-- æŽ¨èå†™æ³•ï¼ˆå¯è¯»æ€§æ›´å¥½ï¼‰
 EXEC usp_GetUserByUserName 
     @UserName = 'admin';
 
-------ËÄ¡¢´øÊä³ö²ÎÊýµÄ´æ´¢¹ý³Ì------
---Ê¾Àý£ºÅÐ¶ÏÓÃ»§ÊÇ·ñ´æÔÚ
+------å››ã€å¸¦è¾“å‡ºå‚æ•°çš„å­˜å‚¨è¿‡ç¨‹------
+--ç¤ºä¾‹ï¼šåˆ¤æ–­ç”¨æˆ·æ˜¯å¦å­˜åœ¨
 CREATE PROCEDURE usp_CheckUserExists
     @UserName NVARCHAR(50),
     @Exists BIT OUTPUT
@@ -66,7 +66,7 @@ BEGIN
     ELSE
         SET @Exists = 0;
 END
---µ÷ÓÃ·½Ê½
+--è°ƒç”¨æ–¹å¼
 DECLARE @Result BIT;
 
 EXEC usp_CheckUserExists 
@@ -75,8 +75,8 @@ EXEC usp_CheckUserExists
 
 SELECT @Result AS UserExists;
 
-------Îå¡¢ÓÃÓÚÐÂÔöÊý¾ÝµÄ´æ´¢¹ý³Ì£¨Insert£©------
---Ê¾Àý£ºÐÂÔöÓÃ»§²¢·µ»ØÐÂÓÃ»§ Id
+------äº”ã€ç”¨äºŽæ–°å¢žæ•°æ®çš„å­˜å‚¨è¿‡ç¨‹ï¼ˆInsertï¼‰------
+--ç¤ºä¾‹ï¼šæ–°å¢žç”¨æˆ·å¹¶è¿”å›žæ–°ç”¨æˆ· Id
 CREATE PROCEDURE usp_CreateUser
     @UserName NVARCHAR(50),
     @Password NVARCHAR(50),
@@ -85,10 +85,11 @@ AS
 BEGIN
     INSERT INTO Users (UserName, Password)
     VALUES (@UserName, @Password);
-
+    -- SCOPE_IDENTITY() æ˜¯ SQL Server ä¸­çš„ä¸€ä¸ªç³»ç»Ÿå‡½æ•°ï¼Œ
+    -- ç”¨æ¥èŽ·å–å½“å‰ä½œç”¨åŸŸå†…æœ€åŽæ’å…¥çš„æ ‡è¯†å€¼ï¼ˆIDENTITY å€¼ï¼‰ã€‚
     SET @NewUserId = SCOPE_IDENTITY();
 END
---µ÷ÓÃ·½Ê½
+--è°ƒç”¨æ–¹å¼
 DECLARE @UserId INT;
 
 EXEC usp_CreateUser
@@ -98,8 +99,8 @@ EXEC usp_CreateUser
 
 SELECT @UserId AS NewUserId;
 
-------Áù¡¢´øÊÂÎñºÍÒì³£´¦ÀíµÄ´æ´¢¹ý³Ì£¨½ø½×£©------
---Ê¾Àý£º×¢²áÓÃ»§£¨·ÀÖ¹ÖØ¸´£©
+------å…­ã€å¸¦äº‹åŠ¡å’Œå¼‚å¸¸å¤„ç†çš„å­˜å‚¨è¿‡ç¨‹ï¼ˆè¿›é˜¶ï¼‰------
+--ç¤ºä¾‹ï¼šæ³¨å†Œç”¨æˆ·ï¼ˆé˜²æ­¢é‡å¤ï¼‰
 CREATE PROCEDURE usp_RegisterUser
     @UserName NVARCHAR(50),
     @Password NVARCHAR(50)
@@ -112,7 +113,7 @@ BEGIN
 
         IF EXISTS (SELECT 1 FROM Users WHERE UserName = @UserName)
         BEGIN
-            RAISERROR('ÓÃ»§ÃûÒÑ´æÔÚ', 16, 1);
+            RAISERROR('ç”¨æˆ·åå·²å­˜åœ¨', 16, 1);
             ROLLBACK TRAN;
             RETURN;
         END
@@ -126,6 +127,6 @@ BEGIN
         IF @@TRANCOUNT > 0
             ROLLBACK TRAN;
 
-        THROW; -- Å×³öÔ­Ê¼Òì³£
+        THROW; -- æŠ›å‡ºåŽŸå§‹å¼‚å¸¸
     END CATCH
 END

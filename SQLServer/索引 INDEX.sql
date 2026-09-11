@@ -1,4 +1,4 @@
--- ²âÊÔÊý¾Ý£º²åÈë400ÍòÌõÊý¾Ý
+-- æµ‹è¯•æ•°æ®ï¼šæ’å…¥400ä¸‡æ¡æ•°æ®
 DECLARE @i INT = 1;
 WHILE @i <= 4000000
 BEGIN
@@ -8,16 +8,19 @@ BEGIN
 END
 
 SET STATISTICS TIME ON;
--- ÎÞË÷ÒýÊ±²éÑ¯£¨Âý£©
+-- æ— ç´¢å¼•æ—¶æŸ¥è¯¢ï¼ˆæ…¢ï¼‰
 SELECT * FROM Users WHERE UserName = 'User50000';
 --SET STATISTICS TIME OFF;
 
--- ´´½¨Ë÷Òý
+-- åˆ›å»ºç´¢å¼•
 CREATE INDEX IX_Users_UserName ON Users(UserName);
--- ÓÐË÷ÒýÊ±²éÑ¯£¨¿ì£©
+-- æœ‰ç´¢å¼•æ—¶æŸ¥è¯¢ï¼ˆå¿«ï¼‰
 SELECT * FROM Users WHERE UserName = 'User50000';
 
---ÒÆ³ýË÷Òý
+-- ç§»é™¤ç´¢å¼•
 --DROP INDEX IX_Users_UserName ON Users
+
+-- ç¦ç”¨ç´¢å¼•
 ALTER INDEX IX_Users_UserName ON Users DISABLE;
+-- å¯ç”¨/é‡æ–°æž„å»ºç´¢å¼•
 ALTER INDEX IX_Users_UserName ON Users REBUILD;
