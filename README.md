@@ -50,18 +50,36 @@
 2. 转换方法
 3. TODO
 
-## 
-
 
 
 ## Database 数据库 Folder
 
 ### ADOdotNETDemo（控制台 + .NET Framework 4.8.1）
 
-1. ADO.NET
-2. TODO：EF6，EFCore
+
 
 ### EFCoreDemo（控制台 + .NET 6）
+
+```
+Install-Package Microsoft.EntityFrameworkCore.SqlServer -Version 7.0.20
+Install-Package Microsoft.EntityFrameworkCore.Tools -Version 7.0.20
+Install-Package Microsoft.EntityFrameworkCore.Design -Version 7.0.20
+```
+
+
+
+## WebAPIDemo（ASP.NET Core Web API + .NET 8）
+
+```
+Install-Package Microsoft.EntityFrameworkCore.InMemory -Version 9.0.20
+```
+
+正确的返回值：
+
+1. GET: 200
+2. POST: 201
+3. PUT: 204 (HTTP 204 No Content)
+4. DELETE: 204 (HTTP 204 No Content)
 
 # SQLServer
 
