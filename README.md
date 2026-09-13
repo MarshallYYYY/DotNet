@@ -39,12 +39,18 @@
 * Excel操作
   * Microsoft Excel 16.0 Object Library（Microsoft.Office.Interop.Excel）
 
-## NetworkProgramming 网络编程
+## NetworkProgramming 网络编程 Folder
 
 * TCP服务端和客户端
 * UDP服务端和客户端
 
-## Database 数据库
+## LINQDemo（控制台 + .NET Framework 4.8.1）
+
+1. 基本查询
+2. 转换方法
+3. TODO
+
+## Database 数据库 Folder
 
 ### ADOdotNETDemo（控制台 + .NET Framework 4.8.1）
 

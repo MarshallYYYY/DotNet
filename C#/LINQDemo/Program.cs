@@ -13,17 +13,19 @@ namespace LINQDemo
             {
                 ShowStudentsInfo(students);
                 Console.WriteLine("请选择要执行的示例：");
-                Console.WriteLine("1 - 基本查询");
-                Console.WriteLine("2 - 转换方法");
-                Console.WriteLine("3 - 元素操作方法");
-                Console.WriteLine("4 - 排序方法");
-                Console.WriteLine("5 - 聚合方法");
-                Console.WriteLine("6 - 集合操作方法");
-                Console.WriteLine("7 - 分组");
-                Console.WriteLine("8 - 跳过与获取指定数量的元素");
-                Console.WriteLine("9 - 条件判断方法");
+                Console.WriteLine("1 - 基本查询（Where、Select、SelectMany）");
+                Console.WriteLine("2 - 转换方法（ToList、ToArray、ToDictionary、ToLookup）");
+                Console.WriteLine("3 - 元素操作方法（First、FirstOrDefault、Single、SingleOrDefault、Last、LastOrDefault、ElementAt、ElementAtOrDefault、DefaultIfEmpty）");
+                Console.WriteLine("4 - 排序方法（OrderBy、OrderByDescending、ThenBy、ThenByDescending）");
+                Console.WriteLine("5 - 聚合方法（Count、Sum、Average、Min、Max、Aggregate）");
+                Console.WriteLine("6 - 集合操作方法（Distinct、Union、Intersect、Except、Concat）");
+                Console.WriteLine("7 - 分组（GroupBy）");
+                Console.WriteLine("8 - 连接（Join）");
+                Console.WriteLine("9 - 分组连接（GroupJoin）");
+                Console.WriteLine("10 - 跳过与获取指定数量的元素（Skip、Take）");
+                Console.WriteLine("11 - 条件判断方法（All、Any、Contains）");
                 Console.WriteLine("0 - 退出");
-                Console.Write("请输入选项(0-9)：");
+                Console.Write("请输入选项(0-11)：");
 
                 if (!int.TryParse(Console.ReadLine(), out int choice))
                 {
@@ -36,46 +38,54 @@ namespace LINQDemo
                 switch (choice)
                 {
                     case 1:
-                        Console.WriteLine(">>> 执行：基本查询");
+                        Console.WriteLine(">>> 执行：基本查询（Where、Select、SelectMany）");
                         Fun基本查询();
                         break;
                     case 2:
-                        Console.WriteLine(">>> 执行：转换方法");
+                        Console.WriteLine(">>> 执行：转换方法（ToList、ToArray、ToDictionary、ToLookup）");
                         Fun转换方法();
                         break;
                     case 3:
-                        Console.WriteLine(">>> 执行：元素操作方法");
+                        Console.WriteLine(">>> 执行：元素操作方法（First、FirstOrDefault、Single、SingleOrDefault、Last、LastOrDefault、ElementAt、ElementAtOrDefault、DefaultIfEmpty）");
                         Fun元素操作方法();
                         break;
                     case 4:
-                        Console.WriteLine(">>> 执行：排序方法");
+                        Console.WriteLine(">>> 执行：排序方法（OrderBy、OrderByDescending、ThenBy、ThenByDescending）");
                         Fun排序方法();
                         break;
                     case 5:
-                        Console.WriteLine(">>> 执行：聚合方法");
+                        Console.WriteLine(">>> 执行：聚合方法（Count、Sum、Average、Min、Max、Aggregate）");
                         Fun聚合方法();
                         break;
                     case 6:
-                        Console.WriteLine(">>> 执行：集合操作方法");
+                        Console.WriteLine(">>> 执行：集合操作方法（Distinct、Union、Intersect、Except、Concat）");
                         Fun集合操作方法();
                         break;
                     case 7:
-                        Console.WriteLine(">>> 执行：分组");
+                        Console.WriteLine(">>> 执行：分组（GroupBy）");
                         Fun分组();
                         break;
                     case 8:
-                        Console.WriteLine(">>> 执行：跳过与获取指定数量的元素");
-                        Fun跳过与获取指定数量的元素();
+                        Console.WriteLine(">>> 执行：连接（Join）");
+                        Fun连接();
                         break;
                     case 9:
-                        Console.WriteLine(">>> 执行：条件判断方法");
+                        Console.WriteLine(">>> 执行：分组连接（GroupJoin）");
+                        Fun分组连接();
+                        break;
+                    case 10:
+                        Console.WriteLine(">>> 执行：跳过与获取指定数量的元素（Skip、Take）");
+                        Fun跳过与获取指定数量的元素();
+                        break;
+                    case 11:
+                        Console.WriteLine(">>> 执行：条件判断方法（All、Any、Contains）");
                         Fun条件判断方法();
                         break;
                     case 0:
                         Console.WriteLine("已退出。");
                         return;
                     default:
-                        Console.WriteLine("输入无效，请输入 0-9 之间的数字。");
+                        Console.WriteLine("输入无效，请输入 0-11 之间的数字。");
                         break;
                 }
 
@@ -401,6 +411,62 @@ namespace LINQDemo
                 {
                     Console.WriteLine($"学生姓名: {stu.StudentName}");
                 }
+            }
+        }
+        static void Fun连接()
+        {
+            List<StudentInfo> students = InitStudentsInfo();
+
+            var classes = new[]
+            {
+                new { ClassID = 101, ClassName = "一班" },
+                new { ClassID = 102, ClassName = "二班" }
+            };
+
+            Console.WriteLine("------- Join 连接学生和班级，然后打印学生姓名和班级名称 -------");
+            // 学生表 students 和班级表 classes 按 ClassID 做 Join，打印“学生姓名 - 班级名称”。
+            var query = students.Join(
+                classes,
+                student => student.ClassID,
+                classItem => classItem.ClassID,
+                (student, classItem) => new
+                {
+                    student.StudentName,
+                    classItem.ClassName
+                });
+
+            foreach (var item in query)
+                Console.WriteLine($"{item.StudentName} - {item.ClassName}");
+        }
+        static void Fun分组连接()
+        {
+            List<StudentInfo> students = InitStudentsInfo();
+
+            var classes = new[]
+            {
+                new { ClassID = 101, ClassName = "一班" },
+                new { ClassID = 102, ClassName = "二班" }
+            };
+
+            Console.WriteLine("------- GroupJoin 分组连接班级和学生，然后按班级打印学生 -------");
+            // 班级表 classes 和学生表 students 按 ClassID 做 GroupJoin，按班级打印学生姓名。
+            var query = classes.GroupJoin(
+                students,
+                classItem => classItem.ClassID,
+                student => student.ClassID,
+                (classItem, classStudents) => new
+                {
+                    classItem.ClassName,
+                    Students = classStudents
+                });
+
+            foreach (var item in query)
+            {
+                Console.WriteLine($"班级名称: {item.ClassName}");
+                Console.Write("学生姓名: ");
+                foreach (StudentInfo student in item.Students)
+                    Console.Write(student.StudentName + " ");
+                Console.WriteLine();
             }
         }
         static void Fun跳过与获取指定数量的元素()
