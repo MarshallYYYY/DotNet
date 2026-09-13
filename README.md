@@ -50,12 +50,18 @@
 2. 转换方法
 3. TODO
 
+## 
+
+
+
 ## Database 数据库 Folder
 
 ### ADOdotNETDemo（控制台 + .NET Framework 4.8.1）
 
 1. ADO.NET
 2. TODO：EF6，EFCore
+
+### EFCoreDemo（控制台 + .NET 6）
 
 # SQLServer
 
